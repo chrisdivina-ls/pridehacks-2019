@@ -9,6 +9,14 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
+import IconButton from '@material-ui/core/IconButton';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -36,21 +44,38 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const RecipeReviewCard = ({ user }) => {
+const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
+
+const UserCard = ({ user }) => {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
   const classes = useStyles();
 
   const { location } = user;
 
+  const handleToggle = () => {
+    setOpen(prevOpen => !prevOpen);
+  };
+
+  const handleClose = event => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
+        avatar={<Avatar className={classes.avatar}>R</Avatar>}
         title={user.username}
         subheader={`${location.city}, ${location.province} \n ${user.tag} `}
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -64,13 +89,40 @@ const RecipeReviewCard = ({ user }) => {
         </Typography>
       </CardContent>
       <CardActions className={classes.actions}>
-        <Button variant="contained" size="small" color="primary" className={classes.button}>
+        <Button
+          variant="contained"
+          size="small"
+          color="primary"
+          className={classes.button}
+          ref={anchorRef}
+          onClick={handleToggle}
+        >
           <SendIcon fontSize="small" className={classes.leftIcons} />
           Connect
         </Button>
+        <Popper open={open} anchorEl={anchorRef.current} transition disablePortal>
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{
+                transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'
+              }}
+            >
+              <Paper id="menu-list-grow">
+                <ClickAwayListener onClickAway={handleClose}>
+                  <MenuList>
+                    {options.map(option => (
+                      <MenuItem key={option}>{option}</MenuItem>
+                    ))}
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
       </CardActions>
     </Card>
   );
 };
 
-export default RecipeReviewCard;
+export default UserCard;
