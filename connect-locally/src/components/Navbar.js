@@ -85,7 +85,7 @@ export default function SimpleTabs() {
             icon={
               <Avatar
                 alt="Remy Sharp"
-                src="/static/images/avatar/1.jpg"
+                src={`${process.env.PUBLIC_URL}/avatar.jpg`}
                 className={classes.avatar}
               />
             }
