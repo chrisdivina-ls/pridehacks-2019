@@ -27,21 +27,21 @@ function TabPanel(props) {
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`
   };
 }
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
+    backgroundColor: theme.palette.background.paper
+  }
 }));
 
 export default function SimpleTabs() {
@@ -57,15 +57,18 @@ export default function SimpleTabs() {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Connect" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Events" {...a11yProps(1)} />
+          <Tab label="Groups" {...a11yProps(2)} />
+          <Tab label="Inbox" {...a11yProps(3)} />
+          <Tab label="Profile" {...a11yProps(4)} />
+          <Tab label="FAQ" {...a11yProps(5)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         Connect
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        Events
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
