@@ -35,7 +35,8 @@ export default function Filters() {
   });
   const [state, setState] = React.useState({
     Français: false,
-    English: false
+    English: false,
+    Arabic: false
   });
 
   const inputLabel = React.useRef(null);
@@ -55,7 +56,7 @@ export default function Filters() {
     setState({ ...state, [name]: event.target.checked });
   };
 
-  const { Français, English } = state;
+  const { Français, English, Arabic } = state;
 
   return (
     <div>
@@ -96,6 +97,12 @@ export default function Filters() {
               <Checkbox checked={English} onChange={handleChecked('English')} value="English" />
             }
             label="English"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={Arabic} onChange={handleChecked('Arabic')} value="Arabic" />
+            }
+            label="بالعربية"
           />
         </FormGroup>
         <TextField
