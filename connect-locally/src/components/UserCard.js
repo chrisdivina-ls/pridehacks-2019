@@ -5,16 +5,14 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    textAlign: 'left',
-    maxWidth: 345
+    textAlign: 'left'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -23,11 +21,18 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.shortest
     })
   },
+  leftIcons: {
+    marginRight: theme.spacing(1)
+  },
   expandOpen: {
     transform: 'rotate(180deg)'
   },
   avatar: {
     backgroundColor: red[500]
+  },
+  actions: {
+    display: 'flex',
+    justifyContent: 'flex-end'
   }
 }));
 
@@ -44,11 +49,6 @@ const RecipeReviewCard = ({ user }) => {
             R
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title={user.username}
         subheader={`${location.city}, ${location.province}`}
       />
@@ -60,12 +60,10 @@ const RecipeReviewCard = ({ user }) => {
           500m away
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+      <CardActions className={classes.actions}>
+        <Button variant="contained" size="small" color="primary" className={classes.button}>
+          <SendIcon fontSize="small" className={classes.leftIcons} />
+          Connect
         </Button>
       </CardActions>
     </Card>
