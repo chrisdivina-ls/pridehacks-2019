@@ -11,6 +11,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,8 +35,7 @@ export default function Filters() {
   });
   const [state, setState] = React.useState({
     Français: false,
-    English: false,
-    NearMe: false
+    English: false
   });
 
   const inputLabel = React.useRef(null);
@@ -55,7 +55,7 @@ export default function Filters() {
     setState({ ...state, [name]: event.target.checked });
   };
 
-  const { Français, English, NearMe } = state;
+  const { Français, English } = state;
 
   return (
     <div>
@@ -98,15 +98,13 @@ export default function Filters() {
             label="English"
           />
         </FormGroup>
-        <FormLabel component="legend">Area</FormLabel>
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox checked={NearMe} onChange={handleChecked('NearMe')} value="NearMe" />
-            }
-            label="Near me"
-          />
-        </FormGroup>
+        <TextField
+          id="standard-with-placeholder"
+          label="Postal Code"
+          placeholder="H2V 1F5"
+          className={classes.textField}
+          margin="normal"
+        />
       </form>
     </div>
   );
