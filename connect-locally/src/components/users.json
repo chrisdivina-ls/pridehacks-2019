@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "username": "Akiko",
+        "location": {
+            "city": "Montreal",
+            "province": "Quebec"
+        },
+        "bio": "I am a parent to a trans* youth with over 18 years experience navigating the gender journey of my young…",
+        "thumbnail": ""
+    },
+    {
+        "id": 2,
+        "username": "Alysia",
+        "location": {
+            "city": "Montreal",
+            "province": "Quebec"
+        },
+        "bio": "I'm a mom of a questioning teen in termes of gender identity and sexual orientation. I myself am bi and…",
+        "thumbnail": ""
+    },
+    {
+        "id": 3,
+        "username": "amberdawn",
+        "location": {
+            "city": "Ottawa",
+            "province": "Ontario"
+        },
+        "bio": "I am a very proud mother of an amazing 13 year old boy. We are looking to connect with other…",
+        "thumbnail": ""
+    }
+]
