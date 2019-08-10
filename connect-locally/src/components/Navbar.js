@@ -6,6 +6,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Badge from '@material-ui/core/Badge';
+import MailIcon from '@material-ui/icons/Mail';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -58,6 +60,9 @@ export default function SimpleTabs() {
           <Tab label="Connect" {...a11yProps(0)} />
           <Tab label="Events" {...a11yProps(1)} />
           <Tab label="Groups" {...a11yProps(2)} />
+          <Badge className={classes.margin} badgeContent={4} color="primary">
+            <MailIcon />
+          </Badge>
           <Tab label="Inbox" {...a11yProps(3)} />
           <Tab label="Profile" {...a11yProps(4)} />
           <Tab label="FAQ" {...a11yProps(5)} />
