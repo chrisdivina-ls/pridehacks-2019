@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Badge from '@material-ui/core/Badge';
 import MailIcon from '@material-ui/icons/Mail';
+import Avatar from '@material-ui/core/Avatar';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,6 +47,9 @@ const useStyles = makeStyles(theme => ({
   },
   margin: {
     margin: theme.spacing(2)
+  },
+  avatar: {
+    margin: 10
   }
 }));
 
@@ -64,16 +68,29 @@ export default function SimpleTabs() {
           <Tab label="Connect" {...a11yProps(0)} />
           <Tab label="Events" {...a11yProps(1)} />
           <Tab label="Groups" {...a11yProps(2)} />
-          <Badge
-            className={classes.margin}
-            onChange={handleChange}
-            badgeContent={4}
-            color="primary"
-          >
-            <MailIcon />
-          </Badge>
-          {/* <Tab label="Inbox" {...a11yProps(3)} /> */}
-          <Tab label="Profile" {...a11yProps(4)} />
+          <Tab
+            icon={
+              <Badge
+                className={classes.margin}
+                onChange={handleChange}
+                badgeContent={4}
+                color="secondary"
+              >
+                <MailIcon />
+              </Badge>
+            }
+            {...a11yProps(3)}
+          />
+          <Tab
+            icon={
+              <Avatar
+                alt="Remy Sharp"
+                src="/static/images/avatar/1.jpg"
+                className={classes.avatar}
+              />
+            }
+            {...a11yProps(4)}
+          />
           <Tab label="FAQ" {...a11yProps(5)} />
         </Tabs>
       </AppBar>
