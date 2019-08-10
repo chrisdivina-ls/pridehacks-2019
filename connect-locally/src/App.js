@@ -1,13 +1,15 @@
 import React from 'react';
-import UserCard from './components/UserCard';
+import UserList from './components/UserList';
 import Navbar from './components/Navbar';
+import Filters from './components/Filters';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <UserCard />
+      <Filters />
+      <UserList />
     </div>
   );
 }
