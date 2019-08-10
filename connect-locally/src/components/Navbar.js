@@ -94,7 +94,7 @@ export default function SimpleTabs() {
           <Tab label="FAQ" {...a11yProps(5)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
+      {/* <TabPanel value={value} index={0}>
         Connect
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -102,7 +102,7 @@ export default function SimpleTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
-      </TabPanel>
+      </TabPanel> */}
     </div>
   );
 }

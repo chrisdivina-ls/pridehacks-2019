@@ -50,9 +50,12 @@ const RecipeReviewCard = ({ user }) => {
           </Avatar>
         }
         title={user.username}
-        subheader={`${location.city}, ${location.province}`}
+        subheader={`${location.city}, ${location.province} \n ${user.tag} `}
       />
       <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          languages: {user.languages.join(', ')}
+        </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {user.bio}
         </Typography>
