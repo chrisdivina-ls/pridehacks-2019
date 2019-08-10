@@ -28,7 +28,8 @@ function TabPanel(props) {
 
 TabPanel.propTypes = {
   index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired
+  value: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 function a11yProps(index) {
@@ -42,6 +43,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper
+  },
+  margin: {
+    margin: theme.spacing(2)
   }
 }));
 
@@ -60,10 +64,15 @@ export default function SimpleTabs() {
           <Tab label="Connect" {...a11yProps(0)} />
           <Tab label="Events" {...a11yProps(1)} />
           <Tab label="Groups" {...a11yProps(2)} />
-          <Badge className={classes.margin} badgeContent={4} color="primary">
+          <Badge
+            className={classes.margin}
+            onChange={handleChange}
+            badgeContent={4}
+            color="primary"
+          >
             <MailIcon />
           </Badge>
-          <Tab label="Inbox" {...a11yProps(3)} />
+          {/* <Tab label="Inbox" {...a11yProps(3)} /> */}
           <Tab label="Profile" {...a11yProps(4)} />
           <Tab label="FAQ" {...a11yProps(5)} />
         </Tabs>
