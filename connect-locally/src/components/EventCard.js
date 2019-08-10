@@ -1,14 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
+import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import Button from '@material-ui/core/Button';
-import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -36,34 +32,23 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const UserCard = ({ user }) => {
+const EventCard = () => {
   const classes = useStyles();
-
-  const { location } = user;
 
   return (
     <Card className={classes.card}>
-      <CardHeader
-        avatar={<Avatar className={classes.avatar}>R</Avatar>}
-        title={user.username}
-        subheader={`${location.city}, ${location.province}`}
-      />
+      <CardMedia className={classes.media} image="./event1.jpg" title="Contemplative Reptile" />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {user.bio}
+        <Typography gutterBottom variant="h5" component="h2">
+          My Event Name
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          500m away
+          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+          across all continents except Antarctica
         </Typography>
       </CardContent>
-      <CardActions className={classes.actions}>
-        <Button variant="contained" size="small" color="primary" className={classes.button}>
-          <SendIcon fontSize="small" className={classes.leftIcons} />
-          Connect
-        </Button>
-      </CardActions>
     </Card>
   );
 };
 
-export default UserCard;
+export default EventCard;

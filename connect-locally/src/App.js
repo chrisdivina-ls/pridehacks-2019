@@ -1,6 +1,7 @@
 import React from 'react';
 import UserList from './components/UserList';
 import Navbar from './components/Navbar';
+import Events from './components/Events';
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Navbar />
       <UserList />
+      <Events />
     </div>
   );
 }

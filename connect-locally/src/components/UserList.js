@@ -8,8 +8,8 @@ const UserList = () => {
   return (
     <Grid container spacing={3}>
       {users.map(user => (
-        <Grid item xs={6} sm={3}>
-          <UserCard key={user.id} user={user} />
+        <Grid key={user.id} item xs={6} sm={3}>
+          <UserCard user={user} />
         </Grid>
       ))}
     </Grid>
